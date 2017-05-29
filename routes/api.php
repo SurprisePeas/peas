@@ -16,3 +16,6 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// 手机验证码发送
+Route::post('phone/code','ApiController@sendVerifyCode');
