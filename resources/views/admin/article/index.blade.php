@@ -8,14 +8,14 @@
                     <div class="panel-heading">
                         文章管理
                     </div>
+                    @if(count($errors) > 0)
+                        <div class="alert-danger">
+                            {!! implode('<br>',$errors->all()) !!}
+                        </div>
+                    @endif
                     <div class="panel-body">
-                        @if(count($errors) > 0)
-                            <div class="alert-danger">
-                                {{!! implode('<br>',$errors->all()) !!}}
-                            </div>
-                        @endif
 
-                        <a href="{{ url('url/article/create') }}" class="btn btn-lg btn-primary">新增文章</a>
+                        <a href="{{ url('admin/article/create') }}" class="btn btn-lg btn-primary">新增文章</a>
 
                         @foreach($articles as $article)
                             <hr>
@@ -23,6 +23,10 @@
                                 <h4>{{ $article->title }}</h4>
                                 <div class="content">
                                     <p>{{ $article->body }}</p>
+                                </div>
+                                <div>
+                                    <p>发布时间: {{ $article->created_at }} </p>
+                                    <p>修改时间: {{ $article->updated_at }} </p>
                                 </div>
                             </div>
                             <a href="{{ url('admin/article/' . $article->id . '/edit') }}" class="btn btn-success">编辑</a>

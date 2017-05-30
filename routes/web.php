@@ -23,5 +23,5 @@ Route::get('now', function () {
 // Admin 后台路由
 Route::group(['middleware'=>'auth','namespace'=>'Admin','prefix'=>'admin'], function () {
     Route::get('/', 'HomeController@index');
-    Route::get('article', 'ArticleController@index');
+    Route::resource('article', 'ArticleController');
 });
