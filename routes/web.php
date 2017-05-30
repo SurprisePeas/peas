@@ -18,4 +18,10 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('now', function () {
     return date("Y-m-d H:i:s");
+}); 
+
+// Admin 后台路由
+Route::group(['middleware'=>'auth','namespace'=>'Admin','prefix'=>'admin'], function () {
+    Route::get('/', 'HomeController@index');
+    Route::get('article', 'ArticleController@index');
 });
