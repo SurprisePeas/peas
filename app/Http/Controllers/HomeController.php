@@ -14,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -24,8 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $article = Article::find(2);
-
-        return view('home');
+        // throw new \Exception("我故意的", 1);
+        // $article = Article::find(3);
+        // dump($article->title);
+        return view('home')->withArticles(Article::all());
     }
 }
