@@ -1,14 +1,18 @@
 {
     "name": "laravel/laravel",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "type": "project",
     "require": {
         "php": ">=5.6.4",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
-        "toplan/phpsms": "~1.7"
+        "toplan/phpsms": "~1.7",
+        "barryvdh/laravel-ide-helper": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -41,7 +45,8 @@
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
-            "php artisan optimize"
+            "php artisan optimize",
+            "php artisan ide-helper:generate"
         ]
     },
     "config": {
